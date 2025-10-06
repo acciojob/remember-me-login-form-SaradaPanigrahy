@@ -1,51 +1,48 @@
-/*  your css code here. If applicable */
 body {
   font-family: Arial, sans-serif;
-  background: #f9f9f9;
+  background: #f4f4f4;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: start;
-  min-height: 100vh;
-  margin-top: 40px;
+  margin-top: 50px;
 }
 
 h1 {
   color: #333;
-  margin-bottom: 20px;
 }
 
 form {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  background: white;
-  padding: 25px;
-  border-radius: 8px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.1);
-  width: 300px;
+  gap: 15px;
 }
 
-input[type="text"], input[type="password"] {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 1rem;
-}
-
+.input-group,
 .checkbox-container {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 8px;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 60%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 #submit {
   background-color: #007bff;
   color: white;
+  padding: 8px;
   border: none;
-  padding: 10px;
-  font-size: 1rem;
-  border-radius: 5px;
+  border-radius: 4px;
   cursor: pointer;
 }
 
@@ -55,14 +52,14 @@ input[type="text"], input[type="password"] {
 
 #existing {
   margin-top: 15px;
-  padding: 10px 20px;
-  border: none;
-  background: #28a745;
+  background-color: #28a745;
   color: white;
-  border-radius: 5px;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
   cursor: pointer;
 }
 
 #existing:hover {
-  background-color: #1f7a32;
+  background-color: #1e7a33;
 }

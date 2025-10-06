@@ -1,4 +1,3 @@
-//your JS code here. If required.
 const usernameInput = document.getElementById("username");
 const passwordInput = document.getElementById("password");
 const checkbox = document.getElementById("checkbox");
@@ -6,13 +5,12 @@ const submitBtn = document.getElementById("submit");
 const existingBtn = document.getElementById("existing");
 const form = document.getElementById("login-form");
 
-// Check localStorage on load
+// Check localStorage when the page loads
 window.addEventListener("DOMContentLoaded", () => {
   const savedUsername = localStorage.getItem("username");
   const savedPassword = localStorage.getItem("password");
 
   if (savedUsername && savedPassword) {
-    // Show "Login as existing user" button
     existingBtn.style.display = "block";
   } else {
     existingBtn.style.display = "none";
@@ -20,8 +18,8 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 // Handle form submission
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
 
   const username = usernameInput.value.trim();
   const password = passwordInput.value.trim();
@@ -32,22 +30,18 @@ form.addEventListener("submit", (e) => {
     return;
   }
 
-  // Alert login
   alert(`Logged in as ${username}`);
 
   if (remember) {
-    // Save credentials
     localStorage.setItem("username", username);
     localStorage.setItem("password", password);
     existingBtn.style.display = "block";
   } else {
-    // Remove any existing credentials
     localStorage.removeItem("username");
     localStorage.removeItem("password");
     existingBtn.style.display = "none";
   }
 
-  // Reset form
   form.reset();
 });
 
