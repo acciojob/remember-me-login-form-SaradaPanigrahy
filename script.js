@@ -1,12 +1,11 @@
-const usernameInput = document.getElementById("username");
-const passwordInput = document.getElementById("password");
-const checkbox = document.getElementById("checkbox");
-const submitBtn = document.getElementById("submit");
-const existingBtn = document.getElementById("existing");
-const form = document.getElementById("login-form");
-
-// Check localStorage when the page loads
 window.addEventListener("DOMContentLoaded", () => {
+  const usernameInput = document.getElementById("username");
+  const passwordInput = document.getElementById("password");
+  const checkbox = document.getElementById("checkbox");
+  const existingBtn = document.getElementById("existing");
+  const form = document.getElementById("login-form");
+
+  // Show "existing user" button if credentials exist
   const savedUsername = localStorage.getItem("username");
   const savedPassword = localStorage.getItem("password");
 
@@ -15,41 +14,41 @@ window.addEventListener("DOMContentLoaded", () => {
   } else {
     existingBtn.style.display = "none";
   }
-});
 
-// Handle form submission
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
+  // Handle form submission
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
 
-  const username = usernameInput.value.trim();
-  const password = passwordInput.value.trim();
-  const remember = checkbox.checked;
+    const username = usernameInput.value.trim();
+    const password = passwordInput.value.trim();
+    const remember = checkbox.checked;
 
-  if (!username || !password) {
-    alert("Please enter both username and password.");
-    return;
-  }
+    if (!username || !password) {
+      alert("Please enter both username and password.");
+      return;
+    }
 
-  alert(`Logged in as ${username}`);
+    alert(`Logged in as ${username}`);
 
-  if (remember) {
-    localStorage.setItem("username", username);
-    localStorage.setItem("password", password);
-    existingBtn.style.display = "block";
-  } else {
-    localStorage.removeItem("username");
-    localStorage.removeItem("password");
-    existingBtn.style.display = "none";
-  }
+    if (remember) {
+      localStorage.setItem("username", username);
+      localStorage.setItem("password", password);
+      existingBtn.style.display = "block";
+    } else {
+      localStorage.removeItem("username");
+      localStorage.removeItem("password");
+      existingBtn.style.display = "none";
+    }
 
-  form.reset();
-});
+    form.reset();
+  });
 
-// Handle existing user login
-existingBtn.addEventListener("click", () => {
-  const savedUsername = localStorage.getItem("username");
+  // Handle existing user login
+  existingBtn.addEventListener("click", () => {
+    const savedUsername = localStorage.getItem("username");
 
-  if (savedUsername) {
-    alert(`Logged in as ${savedUsername}`);
-  }
+    if (savedUsername) {
+      alert(`Logged in as ${savedUsername}`);
+    }
+  });
 });
